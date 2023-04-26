@@ -7,38 +7,48 @@ class Controls {
     this.#addListeners();
   }
   #addListeners() {
-    document.onkeydown = (ev) => {
+    document.addEventListener("keydown", (ev) => {
       switch (ev.key) {
         case "ArrowLeft":
+        case "a":
           this.left = true;
           break;
         case "ArrowRight":
+        case "d":
           this.right = true;
           break;
         case "ArrowUp":
+        case "w":
           this.forward = true;
           break;
         case "ArrowDown":
+        case "s":
           this.reverse = true;
           break;
       }
-    };
-    document.onkeyup = (ev) => {
+      console.log(ev.key);
+    });
+
+    document.addEventListener("keyup", (ev) => {
       switch (ev.key) {
         case "ArrowLeft":
+        case "a":
           this.left = false;
           break;
         case "ArrowRight":
+        case "d":
           this.right = false;
           break;
         case "ArrowUp":
+        case "w":
           this.forward = false;
           break;
         case "ArrowDown":
+        case "s":
           this.reverse = false;
           break;
       }
-    };
+    });
   }
 }
 class Car {
