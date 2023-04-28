@@ -1,9 +1,24 @@
 body {
-  background-color: black;
+  background-color: bisque;
   overflow: hidden;
   margin: 0;
   text-align: center;
+  position: relative;
 }
 #gameCanvas {
-  background-color: white;
+  background-color: lightgray;
+}
+#speedMeter {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-family: "MarioFont";
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+@font-face {
+  font-family: "MarioFont";
+  src: url("MarioFont.ttf");
 }

@@ -26,7 +26,6 @@ class Controls {
           this.reverse = true;
           break;
       }
-      console.log(ev.key);
     });
 
     document.addEventListener("keyup", (ev) => {
@@ -59,11 +58,12 @@ class Car {
     this.h = h;
     this.controls = new Controls();
     this.speed = 0;
-    this.acceleration = 0.3;
-    this.maxSpeed = 5;
+    this.acceleration = 0.08; // Normal value is 0.2
+    this.maxSpeed = 12; // Normal value is 5
     this.maxReverseSpeed = -2;
     this.friction = 0.02;
     this.angle = 0;
+    this.DOMSpeedCount = document.querySelector("#speedCount");
   }
   #move() {
     if (this.controls.forward) {
@@ -103,6 +103,7 @@ class Car {
       */
     this.x -= Math.sin(this.angle) * this.speed;
     this.y -= Math.cos(this.angle) * this.speed;
+    this.DOMSpeedCount.innerHTML = `${Math.ceil(this.speed * 10 * 2)} km/h`;
   }
   update() {
     this.#move();
