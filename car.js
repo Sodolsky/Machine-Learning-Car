@@ -58,7 +58,7 @@ class Car {
     this.h = h;
     this.controls = new Controls();
     this.speed = 0;
-    this.acceleration = 0.08; // Normal value is 0.2
+    this.acceleration = 0.09; // Normal value is 0.2
     this.maxSpeed = 12; // Normal value is 5
     this.maxReverseSpeed = -2;
     this.friction = 0.02;
