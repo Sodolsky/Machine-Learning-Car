@@ -63,6 +63,7 @@ class Car {
     this.maxReverseSpeed = -2;
     this.friction = 0.02;
     this.angle = 0;
+    this.sensor = new Sensors(this);
     this.DOMSpeedCount = document.querySelector("#speedCount");
   }
   #move() {
@@ -103,10 +104,13 @@ class Car {
       */
     this.x -= Math.sin(this.angle) * this.speed;
     this.y -= Math.cos(this.angle) * this.speed;
-    this.DOMSpeedCount.innerHTML = `${Math.ceil(this.speed * 10 * 2)} km/h`;
+    this.DOMSpeedCount.innerHTML = `${Math.ceil(
+      Math.abs(this.speed) * 10 * 2
+    )} km/h`;
   }
-  update() {
+  update(roadBorders) {
     this.#move();
+    this.sensor.update(roadBorders);
   }
 
   draw(ctx) {
@@ -117,5 +121,6 @@ class Car {
     ctx.rect(-this.w / 2, -this.h / 2, this.w, this.h);
     ctx.fill();
     ctx.restore();
+    this.sensor.draw(ctx);
   }
 }
