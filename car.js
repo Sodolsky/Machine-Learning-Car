@@ -59,7 +59,7 @@ class Car {
     this.h = h;
     this.controls = new Controls();
     this.speed = 0;
-    this.acceleration = 0.08;
+    this.acceleration = 0.06;
     this.maxSpeed = 12;
     this.maxReverseSpeed = -2;
     this.friction = 0.02;
